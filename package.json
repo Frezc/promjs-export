@@ -1,0 +1,36 @@
+{
+  "name": "promjs-export",
+  "version": "0.1.0",
+  "description": "another export format for promjs",
+  "main": "lib/index.js",
+  "browser": "es/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "npm run build:types && npm run build:cjs && npm run build:es",
+    "build:cjs": "rimraf ./lib && cross-env MODULES=cjs babel src --out-dir lib --extensions .ts",
+    "build:es": "rimraf ./es && babel src --out-dir es --extensions .ts",
+    "build:types": "rimraf ./types && tsc --emitDeclarationOnly",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.3.4",
+    "promjs": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.3.3",
+    "cross-env": "^5.2.0"
+  }
+}
