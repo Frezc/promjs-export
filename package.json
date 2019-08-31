@@ -1,10 +1,16 @@
 {
   "name": "promjs-export",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "another export format for promjs",
   "main": "lib/index.js",
   "browser": "es/index.js",
   "types": "types/index.d.ts",
+  "files": [
+    "es",
+    "lib",
+    "src",
+    "types"
+  ],
   "scripts": {
     "test": "jest --coverage",
     "build": "npm run build:types && npm run build:cjs && npm run build:es",
