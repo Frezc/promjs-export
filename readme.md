@@ -14,7 +14,18 @@ const registry = prom();
 const pageRequestCounter = registry.create('counter', 'page_requests', 'A counter for page requests');
 pageRequestCounter.inc();
 
-console.log(exportMetrics(registry));
+expect(exportMetrics(registry)).toEqual([
+    {
+        name: 'page_requests',
+        help: 'A counter for page requests',
+        type: 'COUNTER',
+        metrics: [
+            {
+                value: 1,
+            }
+        ]
+    }
+]);
 ```
 
 # Data model
